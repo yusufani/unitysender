@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mailto Örneği</title>
+</head>
+<body>
+
+<h2>E-posta Gönder</h2>
+
+<form id="mailForm">
+    İsim: <input type="text" id="name" name="name" required><br><br>
+    Oda Numarası: <input type="number" id="room" name="room" required><br><br>
+    <input type="button" value="E-posta Oluştur" onclick="createMailto()">
+</form>
+
+<script>
+function createMailto() {
+    var name = document.getElementById('name').value;
+    var room = document.getElementById('room').value;
+    var emailSubject = encodeURIComponent('Yeni Oda Talebi');
+    var emailBody = encodeURIComponent('Merhaba, ben ' + name + ', ' + 'oda numarası ' + room + ' için bir talepte bulunuyorum.');
+
+    var mailtoLink = 'mailto:ornek@eposta.com?subject=' + emailSubject + '&body=' + emailBody;
+    window.location.href = mailtoLink;
+}
+</script>
+
+</body>
+</html>
